@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,4 +14,95 @@
 
     </ListView>
 
-</LinearLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        tools:context=".MusicPlayer"
+        android:id="@+id/player"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:background="@color/pistache"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="25dp"
+        tools:ignore="MissingPrefix">
+
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seek_bar"
+            android:layout_alignStart="@+id/seek_bar"
+            android:layout_alignLeft="@+id/seek_bar"
+            android:layout_marginTop="20dp"
+            android:text="@string/anterior"/>
+
+        <Button
+            android:id="@+id/btn_backward"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seek_bar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/regresarPoco" />
+
+        <Button
+            android:id="@+id/btn_pause"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seek_bar"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/pausePlay" />
+
+        <Button
+            android:id="@+id/btn_forward"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seek_bar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/adelantarPoco" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seek_bar"
+            android:layout_alignEnd="@+id/seek_bar"
+            android:layout_alignRight="@+id/seek_bar"
+            android:layout_marginTop="20dp"
+            android:text="@string/siguiente"/>
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/negro"
+            android:textSize="20sp"
+            android:layout_below="@+id/btn_next"
+            android:paddingTop="20dp"
+            android:text="@string/app_name"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
