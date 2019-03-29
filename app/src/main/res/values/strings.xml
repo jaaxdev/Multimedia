@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MuscImgVid</string>
+    <string name="song_list">song list</string>
+    <string name="anterior"><![CDATA[|<]]></string>
+    <string name="regresarPoco"><![CDATA[<<]]></string>
+    <string name="pausePlay">||</string>
+    <string name="adelantarPoco"><![CDATA[>>]]></string>
+    <string name="siguiente"><![CDATA[>|]]></string>
+    <string name="titulo">Titulo</string>
+</resources>
