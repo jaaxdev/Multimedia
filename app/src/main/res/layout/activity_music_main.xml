@@ -24,21 +24,23 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:layout_height="230dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
         tools:context=".MusicPlayer"
         android:id="@+id/player"
         app:layout_behavior="@string/bottom_sheet_behavior"
         android:background="@color/pistache"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="25dp"
+        app:behavior_peekHeight="30dp"
         tools:ignore="MissingPrefix">
 
         <SeekBar
             android:id="@+id/seek_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"/>
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:id="@+id/btn_previous"
@@ -47,7 +49,7 @@
             android:layout_below="@+id/seek_bar"
             android:layout_alignStart="@+id/seek_bar"
             android:layout_alignLeft="@+id/seek_bar"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="@string/anterior"/>
 
         <Button
@@ -59,7 +61,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="@string/regresarPoco" />
 
         <Button
@@ -67,7 +69,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seek_bar"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:text="@string/pausePlay" />
 
@@ -80,7 +82,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="70dp"
             android:layout_marginRight="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="@string/adelantarPoco" />
 
         <Button
@@ -90,7 +92,7 @@
             android:layout_below="@+id/seek_bar"
             android:layout_alignEnd="@+id/seek_bar"
             android:layout_alignRight="@+id/seek_bar"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="@string/siguiente"/>
 
         <TextView
@@ -100,7 +102,7 @@
             android:textColor="@color/negro"
             android:textSize="20sp"
             android:layout_below="@+id/btn_next"
-            android:paddingTop="20dp"
+            android:paddingTop="15dp"
             android:text="@string/app_name"/>
 
     </RelativeLayout>

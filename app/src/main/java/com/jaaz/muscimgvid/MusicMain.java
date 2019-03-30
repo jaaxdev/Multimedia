@@ -1,12 +1,21 @@
 package com.jaaz.muscimgvid;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -63,7 +72,6 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
         songs = findCanciones(Environment.getExternalStorageDirectory());
         asignarCanciones( songs, list_songs );
 
-        //updateSeekBar();
 
 
         final BottomSheetBehavior bottom = BottomSheetBehavior.from( player );
@@ -102,9 +110,9 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
 
                 if( uptSeekBar.isAlive() ){
                     uptSeekBar.stop();
-                    play(position);
+                    play(pos);
                 } else {
-                    play(position);
+                    play(pos);
                 }
 
             }
@@ -192,7 +200,7 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
         }
     }
 
-    private void updateSeekBar(){
+    private void updateSeekBar(  ){
         uptSeekBar = new Thread(){
             @Override
             public void run() {
@@ -241,5 +249,54 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
                 mp.seekTo(seekBar.getProgress());
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_musica, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch ( item.getItemId() ){
+            case R.id.goto_image:
+                break;
+
+            case R.id.goto_video:
+                break;
+
+            case R.id.informacion:
+                new DialogInformation().show( getSupportFragmentManager(), "info_equipo" );
+
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public static class DialogInformation extends DialogFragment{
+
+        String equipo = "Montaño Ramos Areli  Sharai" +
+                        "\nRebollar Calzada Jaaziel Isai" +
+                        "\nSandra Janeth Briseño González";
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
+            builder.setTitle( "Equipo 7" )
+                    .setMessage( equipo )
+                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getDialog().cancel();
+                        }
+                    });
+
+            return builder.create();
+        }
     }
 }
