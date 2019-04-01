@@ -10,22 +10,25 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="left|top"
+        android:background="@color/blanco"
         android:weightSum="10">
         
         <TextView
             android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/negro"
-            android:textColor="@color/blanco"/>
+            android:background="@color/blanco"
+            android:textColor="@color/blanco"
+            android:textSize="30sp"/>
 
         <ImageView
             android:id="@+id/imagen"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/alto"
             android:scaleType="fitXY"
             android:src="@drawable/_1"
-            android:layout_weight="8"/>
+            android:layout_weight="8"
+            android:padding="10dp"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/galeria"

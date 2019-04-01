@@ -1,12 +1,11 @@
 package com.jaaz.muscimgvid;
 
-import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Menu {
+public class MenuGaleria {
 
     ArrayList<File> imagenesSD;
 
@@ -14,12 +13,12 @@ public class Menu {
     private String titulo;
 
 
-    public Menu(){
+    public MenuGaleria(){
         idImagen = 0;
         titulo = "";
     }
 
-    public Menu( int id, String title ){
+    public MenuGaleria(int id, String title ){
         this.idImagen = id;
         this.titulo = title;
     }
@@ -33,21 +32,65 @@ public class Menu {
         return titulo;
     }
 
-    public ArrayList<Menu> listaMenu(){
+    public ArrayList<MenuGaleria> listaMenu(){
 
         //imagenesSD = findImagenes(Environment.getExternalStorageDirectory());
-        Menu menu;
-        ArrayList<Menu> menus = new ArrayList<>();
-        Integer[] idImagenes = new Integer[]{R.drawable.ic_launcher, R.drawable.image_icon, R.drawable.video_icon};
-        String[] titulos = new String[]{ "launcher", "img", "video" };
+        MenuGaleria menu;
+        ArrayList<MenuGaleria> menus = new ArrayList<>();
+        Integer[] idImagenes = new Integer[]{
+                R.drawable._1,
+                R.drawable._2,
+                R.drawable._3,
+                R.drawable._4,
+                R.drawable._5,
+                R.drawable._6,
+                R.drawable._7,
+                R.drawable._8,
+                R.drawable._9,
+                R.drawable._10,
+                R.drawable._11,
+                R.drawable._12,
+                R.drawable._13,
+                R.drawable._14,
+                R.drawable._15,
+                R.drawable._16,
+        };
+
+
+
+        //String[] titulos = new String[]{ "launcher", "img", "video" };
+        String[] titulos = getStringTitles();
 
         for( int i=0; i<idImagenes.length; i++ ){
-            menu = new Menu( idImagenes[i], titulos[i] );
+            menu = new MenuGaleria( idImagenes[i], titulos[i] );
             menus.add( menu );
         }
 
-
         return menus;
+    }
+
+    private Integer[] getDrawableImgs(){
+        Integer[] img = new Integer[16];
+        try{
+            for( int i=0; i<16; i++ ){
+                img[i] = Integer.parseInt( "R.drawable._"+(i+1) );
+            }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+
+        return img;
+    }
+
+    private String[] getStringTitles(){
+        String[] titulos = new String[16];
+
+        for( int i=0; i<16; i++ ){
+            //titulos[i] = "R.string._"+(i+1);
+            titulos[i] = "imagen"+(i+1);
+        }
+
+        return titulos;
     }
 
     private String[] asignarTitulos( ArrayList<File> imgs ){
@@ -87,7 +130,6 @@ public class Menu {
                 }
             }
         }
-
         return al;
     }
 }

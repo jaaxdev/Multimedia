@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>{
-    private ArrayList<Menu> listaMenu;
+    private ArrayList<MenuGaleria> listaMenu;
     private OnClickRecycler listener;
 
     @NonNull
@@ -26,7 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        Menu menu = listaMenu.get( i );
+        MenuGaleria menu = listaMenu.get( i );
         myViewHolder.bind( menu, listener );
     }
 
@@ -37,10 +37,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     public interface OnClickRecycler{
 
-        void OnClickItemRecycler( Menu menu );
+        void OnClickItemRecycler( MenuGaleria menu );
     }
 
-    RecyclerAdapter( ArrayList<Menu> menus, OnClickRecycler onCR ){
+    RecyclerAdapter(ArrayList<MenuGaleria> menus, OnClickRecycler onCR ){
         this.listaMenu = menus;
         this.listener = onCR;
     }
@@ -53,7 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             imageView = itemView.findViewById(R.id.imagengaleria);
         }
 
-        void bind( final Menu menu, final OnClickRecycler recycler ){
+        void bind(final MenuGaleria menu, final OnClickRecycler recycler ){
 
             Glide.with( imageView.getContext() ).load( menu.getIdImagen()).into( imageView );
 

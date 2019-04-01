@@ -21,7 +21,7 @@ public class DialogFragmentGaleria extends DialogFragment {
     TextView titulo;
     ImageView imagen;
     RecyclerView galeria;
-    ArrayList<Menu> menus;
+    ArrayList<MenuGaleria> menus;
     RecyclerAdapter adapter;
 
     @Override
@@ -29,16 +29,16 @@ public class DialogFragmentGaleria extends DialogFragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_dialog_fragment_galeria, container, false);
+        view = inflater.inflate(R.layout.dialog_fragment_galeria, container, false);
         titulo = view.findViewById(R.id.titulo);
         imagen = view.findViewById(R.id.imagen);
         galeria = view.findViewById(R.id.galeria);
 
         galeria.setLayoutManager( new LinearLayoutManager( getContext(), LinearLayoutManager.HORIZONTAL, false));
-        menus = new Menu().listaMenu();
+        menus = new MenuGaleria().listaMenu();
         adapter = new RecyclerAdapter(menus, new RecyclerAdapter.OnClickRecycler() {
             @Override
-            public void OnClickItemRecycler(Menu menu) {
+            public void OnClickItemRecycler(MenuGaleria menu) {
                 Glide.with( getContext() ).load( menu.getIdImagen() ).into(imagen);
                 titulo.setText( menu.getTitulo() );
             }
@@ -47,6 +47,5 @@ public class DialogFragmentGaleria extends DialogFragment {
 
         return view;
     }
-
 
 }
