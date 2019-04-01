@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,8 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
     Thread uptSeekBar;
     TextView titulo_cancion;
     ArrayList<File> songs;
+    FragmentManager fragmentManager;
+    DialogFragmentGaleria galeria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -264,6 +267,7 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
 
         switch ( item.getItemId() ){
             case R.id.goto_image:
+                visualizarImagenes();
                 break;
 
             case R.id.goto_video:
@@ -271,7 +275,6 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
 
             case R.id.informacion:
                 new DialogInformation().show( getSupportFragmentManager(), "info_equipo" );
-
                 break;
         }
 
@@ -298,5 +301,12 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
 
             return builder.create();
         }
+    }
+
+    private void visualizarImagenes(){
+        fragmentManager = getSupportFragmentManager();
+        galeria = new DialogFragmentGaleria();
+        galeria.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Theme_AppCompat_DayNight_NoActionBar);
+        galeria.show( fragmentManager, "imgs" );
     }
 }

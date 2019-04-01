@@ -11,8 +11,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-
-        <activity android:name=".MusicPlayer"></activity>
+        <activity android:name=".MusicPlayer" />
         <activity android:name=".MusicMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

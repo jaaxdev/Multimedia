@@ -5,4 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="negro">#000000</color>
     <color name="pistache">#85D763</color>
+    <color name="blanco">#FFFFFF</color>
+
+    <dimen name="alto">40dp</dimen>
+    <dimen name="ancho">200dp</dimen>
 </resources>
