@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.support.design.widget.BottomSheetBehavior;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -271,6 +272,19 @@ public class MusicMain extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.goto_video:
+                try{
+                    if( mp.isPlaying() ){
+                        pause.setText(">");
+                        mp.pause();
+                    }
+                    if( uptSeekBar.isAlive() ){
+                        uptSeekBar.stop();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                } finally {
+                    startActivity(new Intent(this, VideoMain.class));
+                }
                 break;
 
             case R.id.informacion:
